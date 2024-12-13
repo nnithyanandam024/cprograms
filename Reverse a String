@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+char str[200],rev[200];
+int length=0,i;
+scanf("%[^\n]",str);
+while(str[i]!='\0')
+    {
+        length++;
+        i++;
+    }
+for(int i=0;i<length;i++)
+    {
+        rev[i]=str[length-1-i];
+    }
+rev[length]='\0';
+printf("%s",rev);
+return 0;
+}
