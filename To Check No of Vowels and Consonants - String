@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char str[200],ch;
+    int vowels=0,constant=0,i;
+    scanf("%[^\n]",str);
+    for(int i=0;str[i]!='\0';i++)
+        {
+            ch=tolower(str[i]);
+            if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+            {
+                vowels++;
+            }
+            if(ch>='a' && ch<='z')
+            {
+                constant++;
+            }
+            
+        }
+    printf("No of Vowels: %d\n",vowels);
+    printf("No of Constant: %d",constant);
+    
+}
