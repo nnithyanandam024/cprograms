@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char str1[200],str2[200],concat[200];
+    scanf("%[^\n]",str1);
+    getchar();
+    scanf("%[^\n]",str2);
+    strcpy(concat,str1);
+    strcat(concat,str2);
+    printf("%s",concat);
+    return 0;
+    
+}
