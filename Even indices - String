@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int n;
+        char str[n][200];
+    scanf("%d",&n);
+    getchar();
+
+    for(int i=0;i<n;i++)
+        {
+            fgets(str[i],200,stdin);
+        }
+    for(int i=0;i<n;i++)
+        {
+            if(i%2==0)
+            {
+                printf("%s\n",str[i]);
+            }
+        }
+}
