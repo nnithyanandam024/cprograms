@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char str[200];
+    int left=0,right;
+    scanf("%[^\n]",str);
+    right=strlen(str)-1;
+    while(left<right)
+        {
+            if(!isalnum(str[left]))
+            {
+                left++;
+                continue;
+            }
+            
+            if(!isalnum(str[right]))
+            {
+                right--;
+                continue;
+            }
+            char leftchar=tolower(str[left]);
+    char rightchar=tolower(str[right]);
+
+    if(leftchar!=rightchar)
+    {
+        printf("%s is not a pallindrome",str);
+        return 0;
+    }
+            left++;
+            right--;
+        }
+    
+    printf("%s is a pallindrome",str);
+}
