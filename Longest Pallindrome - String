@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[200];
+    int n=0,i=0,j=0,maxlength=0,start=0;
+    scanf("%[^\n]",str);
+    while(str[i]!='\0')
+        {
+            n++;
+                i++;
+        }
+    for(int i=0;i<n;i++)
+        {
+            int left=i,right=i;
+            while(left>=0 && right<n && str[left]==str[right])
+            {
+                int length=right-left+1;
+                if(length>maxlength)
+                {
+                    maxlength=length;
+                    start=left;
+                }
+                left--;
+                right++;
+            }
+            left=i,right=i+1;
+            while(left>=0 && right<n && str[left]==str[right])
+            {
+               int length=right-left+1;
+                if(length>maxlength)
+                {
+                    maxlength=length;
+                    start=left;
+                }
+                left--;
+                right++;
+            }
+        }
+    for(int i=start;i<start+maxlength;i++)
+        {
+            printf("%c",str[i]);
+        }
+}
