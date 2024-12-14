@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[200],temp[200],smallest[200],largest[200];
+    int max=0,min=100,j=0,i=0;
+    scanf("%[^\n]",str);
+    while(1)
+        {
+            if(str[i]!=' ' && str[i]!='\0')
+            {
+                temp[j++]=str[i];
+            }
+            else{
+                temp[j]='\0';
+                int len=strlen(temp);
+                if(len<min && len>0)
+                {
+                    strcpy(smallest,temp);
+                     min=len;
+                }
+                if(len>max)
+                {
+                    strcpy(largest,temp);
+                     max=len;
+                }
+                j=0;
+            }
+            if(str[i]=='\0')
+    {
+        break;
+    }
+            i++;
+        }
+    
+    printf("%s\n",smallest);
+    printf("%s",largest);
+}
