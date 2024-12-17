@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define MAX_LEN 1000
+
+void lowercapitalize(char *sentence)
+{
+    char firstcapitalize[MAX_LEN]="None";
+    char firstlower[MAX_LEN]="None";
+    int foundcapital=0,foundlower=0;
+    char *word=strtok(sentence, " ");
+    while(word!=NULL)
+        {
+            if(isupper(word[0]) && !foundcapital)
+            {
+                  strcpy(firstcapitalize,word);
+                  foundcapital=1;
+            }
+            
+            else if(islower(word[0]) && !foundlower)
+            {
+                  strcpy(firstlower,word);
+                  foundlower=1;
+            }
+            word=strtok(NULL," ");
+        }
+    printf("%s\n",firstcapitalize);
+    printf("%s",firstlower);
+    
+}
+int main()
+{
+    char sentence[MAX_LEN];
+    scanf("%[^\n]",sentence);
+    lowercapitalize(sentence);
+}
