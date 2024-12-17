@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define MAX_LEN 1000
+
+void capitalizefirst(char *sentence)
+{
+    int inword=0;
+    int i=0;
+    while(sentence[i]!='\0')
+        {
+            if(isalpha(sentence[i]))
+            {
+                if(!inword)
+                {
+                    sentence[i]=toupper(sentence[i]);
+                    inword=1;
+                }
+            }
+            else{
+                inword=0;
+            }
+            i++;
+        }
+}
+int main()
+{
+    char sentence[MAX_LEN];
+    scanf("%[^\n]",sentence);
+    capitalizefirst(sentence);
+    printf("%s",sentence);
+    
+}
