@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define MAX_LEN 1000
+
+void replacecharacter(char *sentence,const char *replacement)
+{
+    char result[MAX_LEN];
+    int inspace=0;
+    int i=0,j=0,k;
+    while(sentence[i]!='\0')
+        {
+            if(isspace(sentence[i]))
+            {
+                if(!inspace)
+                {
+                    for(int k=0;replacement[k]!='\0';k++)
+                        {
+                            result[j++]=replacement[k];
+                        }
+                    inspace=1;
+                }
+            }
+            else{
+                result[j++]=sentence[i];
+                inspace=0;
+            }
+            i++;
+        }
+    result[j]='\0';
+    strcpy(sentence,result);
+}
+int main()
+{
+    char sentence[MAX_LEN];
+    char replacement[]="@#";
+    scanf("%[^\n]",sentence);
+    replacecharacter(sentence,replacement);
+    printf("%s",sentence);
+}
