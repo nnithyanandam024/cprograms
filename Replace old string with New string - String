@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define MAX_LEN 1000
+
+void replacenewstring(char *sentence,char* oldword,char *newword)
+{
+    char result[MAX_LEN];
+    int i=0,j=0,k;
+    int newlen=strlen(newword);
+    int oldlen=strlen(oldword);
+    while(sentence[i]!='\0')
+        {
+            if(strncmp(&sentence[i],oldword,oldlen)==0)
+            {
+                for(int k=0;k<newlen;k++)
+                    {
+                        result[j++]=newword[k];
+                    }
+                i+=oldlen;
+            }
+            else
+            {
+                result[j++]=sentence[i++];
+            }
+            
+        }
+    result[j]='\0';
+    strcpy(sentence,result);
+}
+int main()
+{
+    char sentence[MAX_LEN],newword[MAX_LEN],oldword[MAX_LEN];
+    scanf("%[^\n]",sentence);
+        getchar();
+    scanf("%[^\n]",oldword);
+        getchar();
+    scanf("%[^\n]",newword);
+        replacenewstring(sentence,oldword,newword);
+printf("%s",sentence);
+}
