@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int occurence(int arr[],int n,int tofind)
+{
+    int count=0;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==tofind)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int main()
+{
+    int n,tofind;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&tofind);
+    int count1=occurence(arr,n,tofind);
+    printf("Occurence of %d is %d",tofind,count1);
+}
